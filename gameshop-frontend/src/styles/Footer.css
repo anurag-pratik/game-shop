@@ -1,0 +1,12 @@
+.footer-container {
+  min-height: 60px;
+  width: 100%;
+  background-color: black;
+  color: rgb(149, 0, 255);
+  text-align: center;
+}
+
+.footer-text {
+  margin: 0;
+  padding-top: 15px;
+}

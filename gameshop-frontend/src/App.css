@@ -1,0 +1,31 @@
+.App {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  color: white;
+}
+
+.main-container {
+  background-color: rgb(58, 58, 58);
+  padding: 5%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:-webkit-any-link {
+  color: inherit;
+}
+
+button:hover {
+  cursor: pointer;
+}

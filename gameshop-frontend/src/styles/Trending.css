@@ -1,0 +1,10 @@
+.trending-container {
+  background-color: black;
+  border-radius: 20px;
+  padding: 2%;
+}
+
+.trending-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
