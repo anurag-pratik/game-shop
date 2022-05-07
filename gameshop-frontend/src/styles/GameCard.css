@@ -15,3 +15,15 @@ img {
   padding: 5% 0;
   display: block;
 }
+
+.add-to-cart-button {
+  padding: 5%;
+  border-radius: 10px;
+  background-color: indigo;
+  color: white;
+  font-size: 0.6rem;
+}
+
+.add-to-cart-button:hover {
+  filter: brightness(120%);
+}

@@ -22,7 +22,9 @@ function GameCard(props) {
         ></img>
       </Link>
       <div>
-        <button className="right-float-container">Add To Cart</button>
+        <button className="right-float-container add-to-cart-button">
+          ADD TO CART
+        </button>
         <h3>Price: {props.price}</h3>
       </div>
     </div>
