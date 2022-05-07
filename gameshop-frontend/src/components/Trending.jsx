@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Trending.css";
 import GameCard from "./GameCard";
-import data from "../data";
 import Grid from "@mui/material/Grid";
+import axios from "axios";
 
 function Trending() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/games")
+      .then((res) => setData(res.data));
+  }, []);
+
   return (
     <div className="trending-container">
       <h1 className="trending-header">TRENDING</h1>
@@ -15,9 +23,9 @@ function Trending() {
         justify="center"
         align="center"
       >
-        {data.games.map((game) => {
+        {data.map((game) => {
           return (
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={4} key={game.slug}>
               <GameCard
                 key={game.slug}
                 name={game.name}
