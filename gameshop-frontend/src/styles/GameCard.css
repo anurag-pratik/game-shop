@@ -1,19 +1,17 @@
 .game-card {
-  background-color: rgb(100, 100, 100);
+  background-color: rgb(58, 58, 58);
   padding: 6%;
+  padding-bottom: 2%;
   border-radius: 20px;
-  max-width: 200px;
+  max-width: 320px;
   border: 4px solid rgb(114, 0, 228);
   text-align: left;
+  transition: transform 0.25s ease-in-out;
+  box-shadow: 8px 6px 8px 8px rgba(88, 0, 176, 0.459);
 }
 
-.right-float-container {
-  float: right;
-}
-
-img {
-  padding: 5% 0;
-  display: block;
+.game-card:hover {
+  transform: scale3d(1.05, 1.05, 1);
 }
 
 .add-to-cart-button {
@@ -21,9 +19,39 @@ img {
   border-radius: 10px;
   background-color: indigo;
   color: white;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 
 .add-to-cart-button:hover {
   filter: brightness(120%);
+}
+
+.card-item {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.card-item-1 {
+  height: 38px;
+}
+
+.card-item-2 {
+  height: 35px;
+}
+
+.card-item-3 {
+  height: 35px;
+}
+
+.card-item-4 {
+  height: 190px;
+  overflow: auto;
+}
+
+.card-item-5 {
+  height: 60px;
+}
+
+.bottom-item {
+  margin-top: 2px !important;
 }

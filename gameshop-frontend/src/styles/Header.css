@@ -9,4 +9,11 @@
 .header-text {
   margin: 0;
   padding-top: 10px;
+  display: inline-block;
+}
+
+.header-cart-icon {
+  position: absolute;
+  top: 20px;
+  right: 30px;
 }

@@ -9,6 +9,8 @@ const data = {
       price: "500",
       developer: "Riot Games",
       rating: 4.5,
+      ratingCount: 9650,
+      downloadCount: 92134,
       description:
         "Valorant is a tactical shooting game involving two teams with 5 players in each team. Every player can sign in and play remotely from anywhere in the world. Every game has 25 rounds and the team that wins 13 of them first wins the game. Players can choose their in-game characters called agents at the start of the game.",
     },
@@ -21,6 +23,8 @@ const data = {
       price: "500",
       developer: "Ubisoft",
       rating: 4.4,
+      ratingCount: 8760,
+      downloadCount: 69324,
       description:
         " Rainbow Six Siege is a high-precision, tactical shooter that prioritises careful planning teamwork and finely tuned tactical play.",
     },
@@ -33,6 +37,8 @@ const data = {
       price: "1000",
       developer: "Ubisoft",
       rating: 4.1,
+      ratingCount: 2654,
+      downloadCount: 12003,
       description:
         "Tom Clancy's Ghost Recon Wildlands is a tactical cover based shooter game set in an open world environment and played from a third-person perspective with an optional first person view for gun aiming.",
     },
