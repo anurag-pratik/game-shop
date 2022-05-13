@@ -50,8 +50,17 @@ function GameScreen() {
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
 
+  const { cart } = state;
+
   const addToCartHandler = () => {
-    ctxDispatch({ type: "CART_ADD_ITEM", payload: { ...game, quantity: 1 } });
+    const existingItem = cart.cartItems.find((ele) => ele._id === game._id);
+
+    const quantity = existingItem ? existingItem.quantity + 1 : 1;
+
+    ctxDispatch({
+      type: "CART_ADD_ITEM",
+      payload: { ...game, quantity: quantity },
+    });
   };
 
   return (

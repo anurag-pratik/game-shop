@@ -22,7 +22,12 @@ function App() {
           </Link>
           <Link to="/cart">
             <div className="header-cart-icon">
-              <Badge badgeContent={cart.cartItems.length}>
+              <Badge
+                badgeContent={cart.cartItems.reduce(
+                  (a, c) => a + c.quantity,
+                  0
+                )}
+              >
                 <ShoppingCartIcon />
               </Badge>
             </div>
