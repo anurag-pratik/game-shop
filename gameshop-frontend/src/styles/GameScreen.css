@@ -1,11 +1,11 @@
 .game-container {
   background-color: black;
   border-radius: 20px;
-  padding: 5%;
+  padding: 3% 5%;
 }
 
 .game-item-main {
-  height: 480px;
+  height: 520px;
   word-break: break-all;
   text-overflow: ellipsis;
   overflow: hidden;

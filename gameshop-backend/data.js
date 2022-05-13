@@ -1,6 +1,7 @@
 const data = {
   games: [
     {
+      _id: 1,
       name: "VALORANT",
       slug: "valorant",
       category: "FPS",
@@ -15,6 +16,7 @@ const data = {
         "Valorant is a tactical shooting game involving two teams with 5 players in each team. Every player can sign in and play remotely from anywhere in the world. Every game has 25 rounds and the team that wins 13 of them first wins the game. Players can choose their in-game characters called agents at the start of the game.",
     },
     {
+      _id: 2,
       name: "RAINBOW SIX SIEGE",
       slug: "rainbow-six-siege",
       category: "FPS",
@@ -29,6 +31,7 @@ const data = {
         " Rainbow Six Siege is a high-precision, tactical shooter that prioritises careful planning teamwork and finely tuned tactical play.",
     },
     {
+      _id: 3,
       name: "GHOST RECON WILDLANDS",
       slug: "ghost-recon-wildlands",
       category: "Tactical Shooter",

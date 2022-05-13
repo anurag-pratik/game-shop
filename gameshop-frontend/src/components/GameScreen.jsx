@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useContext } from "react";
 import "../styles/GameScreen.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -7,6 +7,7 @@ import ErrorScreen from "./ErrorScreen";
 import Grid from "@mui/material/Grid";
 import { Helmet } from "react-helmet-async";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
+import { Store } from "../Store";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -46,6 +47,12 @@ function GameScreen() {
 
     fetchData();
   }, [slug]);
+
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+
+  const addToCartHandler = () => {
+    ctxDispatch({ type: "CART_ADD_ITEM", payload: { ...game, quantity: 1 } });
+  };
 
   return (
     <div className="game-container">
@@ -102,7 +109,10 @@ function GameScreen() {
                 <h2>Price: {game.price}</h2>
               </Grid>
               <Grid item className="game-cart-button game-item">
-                <button className="gamne-add-to-cart-button">
+                <button
+                  onClick={addToCartHandler}
+                  className="gamne-add-to-cart-button"
+                >
                   ADD TO CART <ShoppingCartCheckoutIcon />
                 </button>
               </Grid>

@@ -62,19 +62,7 @@ function HomeScreen() {
           games.map((game) => {
             return (
               <Grid item sm={12} md={6} lg={4} key={game.slug}>
-                <GameCard
-                  key={game.slug}
-                  name={game.name}
-                  slug={game.slug}
-                  category={game.category}
-                  image={game.image}
-                  price={game.price}
-                  developer={game.developer}
-                  rating={game.rating}
-                  ratingCount={game.ratingCount}
-                  downloadCount={game.downloadCount}
-                  description={game.description}
-                />
+                <GameCard key={game.slug} game={game} />
               </Grid>
             );
           })

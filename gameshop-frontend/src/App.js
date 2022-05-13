@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./App.css";
-import Header from "./components/Header";
+import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomeScreen from "./components/HomeScreen";
 import GameScreen from "./components/GameScreen";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import Badge from "@mui/material/Badge";
+import { Store } from "./Store";
 
 function App() {
+  const { state } = useContext(Store);
+  const { cart } = state;
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
+        <div className="header-container">
+          <Link to="/">
+            <h1 className="header-text">GAMESHOP</h1>
+          </Link>
+          <Link to="/cart">
+            <div className="header-cart-icon">
+              <Badge badgeContent={cart.cartItems.length}>
+                <ShoppingCartIcon />
+              </Badge>
+            </div>
+          </Link>
+        </div>
+
         <div className="main-container">
           <Routes>
             <Route path="/game/:slug" element={<GameScreen />} />
