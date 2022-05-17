@@ -1,0 +1,13 @@
+.cart-main-container {
+  background-color: black;
+  border-radius: 20px;
+  padding: 3% 5%;
+}
+
+.cart-item-container {
+  height: 120px;
+}
+
+.cart-item-image {
+  height: 100px;
+}

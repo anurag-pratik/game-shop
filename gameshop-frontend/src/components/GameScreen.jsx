@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect, useContext } from "react";
 import "../styles/GameScreen.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import LoadingScreen from "./LoadingScreen";
 import ErrorScreen from "./ErrorScreen";
@@ -8,6 +8,7 @@ import Grid from "@mui/material/Grid";
 import { Helmet } from "react-helmet-async";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import { Store } from "../Store";
+import Fade from "react-reveal/Fade";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -29,7 +30,9 @@ function GameScreen() {
     game: [],
   });
 
+  const navigate = useNavigate();
   const params = useParams();
+
   const { slug } = params;
 
   useEffect(() => {
@@ -61,75 +64,79 @@ function GameScreen() {
       type: "CART_ADD_ITEM",
       payload: { ...game, quantity: quantity },
     });
+
+    navigate(`/cart`);
   };
 
   return (
-    <div className="game-container">
-      {loading ? (
-        <LoadingScreen />
-      ) : error ? (
-        <ErrorScreen error={error} />
-      ) : (
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          align="left"
-          spacing={5}
-        >
-          <Grid item md={12} lg={4} className="game-item-main">
-            <img
-              width={"100%"}
-              height={"100%"}
-              alt={game.name}
-              src={game.image}
-            ></img>
-          </Grid>
-          <Grid item md={12} lg={8} className="game-item-main">
-            <Grid
-              container
-              item
-              direction="column"
-              justify="center"
-              align="left"
-            >
-              <Grid item className="game-name game-item">
-                <Helmet>
-                  <title>{game.name} | GameShop</title>
-                </Helmet>
-                <h1> {game.name}</h1>
-              </Grid>
-              <Grid item className="game-developer game-item">
-                <h3> {game.developer}</h3>
-              </Grid>
-              <Grid item className="game-rating game-item">
-                <h3>
-                  {game.rating} ⭐ ({game.ratingCount} ratings) [
-                  {game.downloadCount} downloads]
-                </h3>
-              </Grid>
-              <Grid item className="game-category game-item">
-                <h4>Category: {game.category}</h4>
-              </Grid>
-              <Grid item className="game-description game-item">
-                <h4>Description: {game.description}</h4>
-              </Grid>
-              <Grid item className="game-price game-item">
-                <h2>Price: {game.price}</h2>
-              </Grid>
-              <Grid item className="game-cart-button game-item">
-                <button
-                  onClick={addToCartHandler}
-                  className="gamne-add-to-cart-button"
-                >
-                  ADD TO CART <ShoppingCartCheckoutIcon />
-                </button>
+    <Fade cascade>
+      <div className="game-container">
+        {loading ? (
+          <LoadingScreen />
+        ) : error ? (
+          <ErrorScreen error={error} />
+        ) : (
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            align="left"
+            spacing={5}
+          >
+            <Grid item md={12} lg={4} className="game-item-main">
+              <img
+                width={"100%"}
+                height={"100%"}
+                alt={game.name}
+                src={game.image}
+              ></img>
+            </Grid>
+            <Grid item md={12} lg={8} className="game-item-main">
+              <Grid
+                container
+                item
+                direction="column"
+                justify="center"
+                align="left"
+              >
+                <Grid item className="game-name game-item">
+                  <Helmet>
+                    <title>{game.name} | GameShop</title>
+                  </Helmet>
+                  <h1> {game.name}</h1>
+                </Grid>
+                <Grid item className="game-developer game-item">
+                  <h3> {game.developer}</h3>
+                </Grid>
+                <Grid item className="game-rating game-item">
+                  <h3>
+                    {game.rating} ⭐ ({game.ratingCount} ratings) [
+                    {game.downloadCount} downloads]
+                  </h3>
+                </Grid>
+                <Grid item className="game-category game-item">
+                  <h4>Category: {game.category}</h4>
+                </Grid>
+                <Grid item className="game-description game-item">
+                  <h4>Description: {game.description}</h4>
+                </Grid>
+                <Grid item className="game-price game-item">
+                  <h2>Price: {game.price}</h2>
+                </Grid>
+                <Grid item className="game-cart-button game-item">
+                  <button
+                    onClick={addToCartHandler}
+                    className="gamne-add-to-cart-button"
+                  >
+                    ADD TO CART <ShoppingCartCheckoutIcon />
+                  </button>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      )}
-    </div>
+        )}
+      </div>
+    </Fade>
   );
 }
 

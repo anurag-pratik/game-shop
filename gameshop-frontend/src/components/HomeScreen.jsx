@@ -7,6 +7,7 @@ import logger from "use-reducer-logger";
 import LoadingScreen from "./LoadingScreen";
 import ErrorScreen from "./ErrorScreen";
 import { Helmet } from "react-helmet-async";
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST":
