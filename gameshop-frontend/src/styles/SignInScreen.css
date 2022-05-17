@@ -1,0 +1,20 @@
+.sign-in-container {
+  background-color: rgb(0, 0, 0);
+  border-radius: 20px;
+  margin: auto;
+  padding: 3% 0%;
+  width: max-content;
+}
+
+.sign-in-header {
+  display: inline;
+}
+
+.sign-in-grid {
+  max-width: 500px !important;
+}
+
+.MuiTextField-root {
+  background-color: white !important;
+  border-radius: 10px;
+}

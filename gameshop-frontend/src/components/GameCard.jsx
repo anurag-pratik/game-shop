@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import Zoom from "react-reveal/Zoom";
 import { Store } from "../Store";
+import Button from "@mui/material/Button";
 
 function GameCard(props) {
   const { game } = props;
@@ -76,14 +77,15 @@ function GameCard(props) {
             <h3>Price: {game.price}</h3>
           </Grid>
           <Grid item xs={6} align="right" className="card-item-5 card-item">
-            <button
+            <Button
+              variant="contained"
               className="add-to-cart-button"
               onClick={() => {
                 addToCartHandler(game);
               }}
             >
               ADD TO CART <ShoppingCartCheckoutIcon />
-            </button>
+            </Button>
           </Grid>
         </Grid>
       </div>

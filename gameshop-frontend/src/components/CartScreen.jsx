@@ -10,6 +10,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import DeleteIcon from "@mui/icons-material/Delete";
 import Fade from "react-reveal/Fade";
+import Button from "@mui/material/Button";
 
 function CartScreen() {
   const navigate = useNavigate();
@@ -126,12 +127,13 @@ function CartScreen() {
                 {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}
               </h2>
 
-              <button
+              <Button
+                variant="contained"
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}
               >
                 Proceed to checkout
-              </button>
+              </Button>
             </Grid>
           </Grid>
         )}

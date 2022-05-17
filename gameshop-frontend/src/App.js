@@ -10,6 +10,7 @@ import Badge from "@mui/material/Badge";
 import { Store } from "./Store";
 import CartScreen from "./components/CartScreen";
 import Flip from "react-reveal/Flip";
+import SignInScreen from "./components/SignInScreen";
 
 function App() {
   const { state } = useContext(Store);
@@ -45,6 +46,7 @@ function App() {
             <Route path="/game/:slug" element={<GameScreen />} />
             <Route path="/" element={<HomeScreen />} />
             <Route path="/cart" element={<CartScreen />} />
+            <Route path="/signin" element={<SignInScreen />} />
           </Routes>
         </div>
       </BrowserRouter>
