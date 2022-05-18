@@ -1,8 +1,25 @@
 import express from "express";
 import data from "./data.js";
 import cors from "cors";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import seedRouter from "./routes/seedRoutes.js";
+import gameRouter from "./routes/gameRoutes.js";
+
+dotenv.config();
+
+mongoose
+  .connect(process.env.MONGODB_URL)
+  .then(() => {
+    console.log("Connected to MongoDB!");
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 
 const app = express();
+
+app.use("/api/seed", seedRouter);
 
 const corsOpts = {
   origin: "*",
@@ -14,14 +31,7 @@ const corsOpts = {
 
 app.use(cors(corsOpts));
 
-app.get("/api/games", (req, res) => {
-  res.send(data.games);
-});
-
-app.get("/api/games/slug/:slug", (req, res) => {
-  const game = data.games.find((ele) => ele.slug === req.params.slug);
-  game ? res.send(game) : res.status(404).send({ message: "Game not found" });
-});
+app.use("/api/games", gameRouter);
 
 const port = process.env.PORT || 8000;
 
