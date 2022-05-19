@@ -11,10 +11,13 @@ import { Store } from "./Store";
 import CartScreen from "./components/CartScreen";
 import Flip from "react-reveal/Flip";
 import SignInScreen from "./components/SignInScreen";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 function App() {
   const { state } = useContext(Store);
-  const { cart } = state;
+  const { cart, userInfo } = state;
 
   return (
     <div className="App">
@@ -27,6 +30,17 @@ function App() {
               </Flip>
             </h1>
           </Link>
+          {userInfo ? (
+            <div className="user-profile-menu">
+              <Button>{userInfo.name}</Button>
+              <Menu open={false}>
+                <MenuItem>Profile</MenuItem>
+                <MenuItem>Orders</MenuItem>
+              </Menu>
+            </div>
+          ) : (
+            <Link to="/signin">Sign In</Link>
+          )}
           <Link to="/cart">
             <div className="header-cart-icon">
               <Badge

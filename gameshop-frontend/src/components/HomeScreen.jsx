@@ -32,7 +32,7 @@ function HomeScreen() {
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" });
       try {
-        const res = await axios.get("http://localhost:8000/api/games");
+        const res = await axios.get("/api/games");
         dispatch({ type: "FETCH_SUCCESSFUL", payload: res.data });
       } catch (error) {
         dispatch({ type: "FETCH_FAIL", payload: error.message });
@@ -44,9 +44,7 @@ function HomeScreen() {
 
   return (
     <div className="games-container">
-      <Helmet>
-        <title>GameShop - The Best Store For Gamers</title>
-      </Helmet>
+      <Helmet title={"GameShop - The Best Store For Gamers"} />
       <h1 className="games-header">GAMES</h1>
       <Grid
         container

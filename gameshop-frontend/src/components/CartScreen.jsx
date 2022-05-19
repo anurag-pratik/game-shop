@@ -40,9 +40,7 @@ function CartScreen() {
   return (
     <Fade cascade>
       <div className="cart-main-container">
-        <Helmet>
-          <title>Your Cart | GameShop</title>
-        </Helmet>
+        <Helmet title={"Your Cart | GameShop"} />
         <h1>Your Cart</h1>
         {cartItems.length === 0 ? (
           <h2>

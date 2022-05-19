@@ -1,10 +1,11 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import data from "./data.js";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import seedRouter from "./routes/seedRoutes.js";
 import gameRouter from "./routes/gameRoutes.js";
+import userRouter from "./routes/userRoutes.js";
 
 dotenv.config();
 
@@ -19,8 +20,6 @@ mongoose
 
 const app = express();
 
-app.use("/api/seed", seedRouter);
-
 const corsOpts = {
   origin: "*",
 
@@ -31,7 +30,16 @@ const corsOpts = {
 
 app.use(cors(corsOpts));
 
+app.use(express.json());
+app.use(urlencoded({ extended: true }));
+
+app.use("/api/seed", seedRouter);
 app.use("/api/games", gameRouter);
+app.use("/api/users", userRouter);
+
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
+});
 
 const port = process.env.PORT || 8000;
 

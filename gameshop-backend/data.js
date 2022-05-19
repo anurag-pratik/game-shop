@@ -1,4 +1,20 @@
+import bcrypt from "bcryptjs";
+
 const data = {
+  users: [
+    {
+      name: "Anurag Pratik",
+      email: "anurag@gameshop.com",
+      password: bcrypt.hashSync("Anurag1234"),
+      isAdmin: true,
+    },
+    {
+      name: "Aniket Sharma",
+      email: "aniket@gameshop.com",
+      password: bcrypt.hashSync("Aniket1234"),
+      isAdmin: false,
+    },
+  ],
   games: [
     {
       name: "VALORANT",

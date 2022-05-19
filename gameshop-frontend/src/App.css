@@ -51,6 +51,18 @@ button:hover {
 }
 
 .MuiBadge-badge {
-  background-color: indigo;
+  background-color: indigo !important;
   color: white;
+}
+
+.MuiInputLabel-root {
+  color: indigo !important;
+}
+
+.user-profile-menu {
+  width: 200px;
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  right: 60px;
 }

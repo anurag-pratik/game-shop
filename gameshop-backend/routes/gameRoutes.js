@@ -1,7 +1,7 @@
 import express from "express";
 import Game from "../models/gameModel.js";
 
-const gameRouter = express();
+const gameRouter = express.Router();
 
 gameRouter.get("/", async (req, res) => {
   const games = await Game.find({});

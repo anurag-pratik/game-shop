@@ -100,9 +100,7 @@ function GameScreen() {
                 align="left"
               >
                 <Grid item className="game-name game-item">
-                  <Helmet>
-                    <title>{game.name} | GameShop</title>
-                  </Helmet>
+                  <Helmet title={`${game.name} | GameShop`} />
                   <h1> {game.name}</h1>
                 </Grid>
                 <Grid item className="game-developer game-item">
