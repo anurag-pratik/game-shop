@@ -6,13 +6,17 @@
   max-width: 320px;
   border: 4px solid rgb(114, 0, 228);
   text-align: left;
-  transition: transform 0.25s ease-in-out;
+
   box-shadow: 8px 6px 8px 8px rgba(88, 0, 176, 0.459);
 }
 
-/* .game-card:hover {
+.game-card-zoom-container {
+  transition: transform 0.25s ease-in-out;
+}
+
+.game-card-zoom-container:hover {
   transform: scale3d(1.05, 1.05, 1);
-} */
+}
 
 .add-to-cart-button {
   padding: 5%;

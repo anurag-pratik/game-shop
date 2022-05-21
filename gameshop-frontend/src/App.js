@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./App.css";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
@@ -14,10 +14,24 @@ import SignInScreen from "./components/SignInScreen";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import PersonIcon from "@mui/icons-material/Person";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 function App() {
   const { state } = useContext(Store);
   const { cart, userInfo } = state;
+
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const open = Boolean(anchorEl);
+
+  const handleClick = (e) => {
+    setAnchorEl(e.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <div className="App">
@@ -30,12 +44,33 @@ function App() {
               </Flip>
             </h1>
           </Link>
+
           {userInfo ? (
             <div className="user-profile-menu">
-              <Button>{userInfo.name}</Button>
-              <Menu open={false}>
-                <MenuItem>Profile</MenuItem>
-                <MenuItem>Orders</MenuItem>
+              <Button
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClick}
+                variant="contained"
+              >
+                <PersonIcon />
+                {userInfo.name.substring(0, userInfo.name.indexOf(" "))}
+                <ArrowDropDownIcon />
+              </Button>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>Orders</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
               </Menu>
             </div>
           ) : (
