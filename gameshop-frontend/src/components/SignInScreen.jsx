@@ -62,7 +62,7 @@ function SignInScreen() {
   };
 
   useEffect(() => {
-    if (userInfo) navigate("/");
+    if (userInfo) navigate(redirect || "/");
   }, [navigate, userInfo, redirect]);
 
   return (

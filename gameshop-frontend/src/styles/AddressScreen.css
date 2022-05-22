@@ -1,0 +1,7 @@
+.address-form-container {
+  background-color: rgb(0, 0, 0);
+  border-radius: 20px;
+  margin: auto;
+  padding: 3% 5%;
+  width: max-content;
+}

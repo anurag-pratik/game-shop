@@ -16,6 +16,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import PersonIcon from "@mui/icons-material/Person";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import AddressScreen from "./components/AddressScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -36,6 +37,7 @@ function App() {
   const signOutHandler = () => {
     ctxDispatch({ type: "USER_SIGNOUT" });
     localStorage.removeItem("userInfo");
+    localStorage.removeItem("address");
   };
 
   return (
@@ -111,6 +113,7 @@ function App() {
             <Route path="/" element={<HomeScreen />} />
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/signin" element={<SignInScreen />} />
+            <Route path="/address" element={<AddressScreen />} />
           </Routes>
         </div>
       </BrowserRouter>
