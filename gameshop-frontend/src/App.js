@@ -18,7 +18,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 function App() {
-  const { state } = useContext(Store);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -31,6 +31,11 @@ function App() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const signOutHandler = () => {
+    ctxDispatch({ type: "USER_SIGNOUT" });
+    localStorage.removeItem("userInfo");
   };
 
   return (
@@ -68,13 +73,23 @@ function App() {
                   "aria-labelledby": "basic-button",
                 }}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>Orders</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <Link to="/profile">
+                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                </Link>
+                <Link to="/orders">
+                  <MenuItem onClick={handleClose}>Orders</MenuItem>
+                </Link>
+                <Link to="/" onClick={signOutHandler}>
+                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                </Link>
               </Menu>
             </div>
           ) : (
-            <Link to="/signin">Sign In</Link>
+            <div className="nav-signin">
+              <Link to="/signin">
+                <Button variant="contained">Sign In</Button>
+              </Link>
+            </div>
           )}
           <Link to="/cart">
             <div className="header-cart-icon">

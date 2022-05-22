@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "../styles/SignInScreen.css";
 import { Helmet } from "react-helmet-async";
 import Fade from "react-reveal/Fade";
@@ -8,6 +8,9 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { Store } from "../Store";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
+import { getError } from "../utils";
 
 function SignInScreen() {
   const navigate = useNavigate();
@@ -31,6 +34,18 @@ function SignInScreen() {
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
 
+  const { userInfo } = state;
+
+  const [open, setOpen] = useState(false);
+  const [snackText, setSnackText] = useState("Error");
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
+
   const signinSubmitHandler = async () => {
     try {
       const { data } = await axios.post("/api/users/signin", {
@@ -41,9 +56,14 @@ function SignInScreen() {
       localStorage.setItem("userInfo", JSON.stringify(data));
       navigate(redirect || "/");
     } catch (err) {
-      alert("Incorrect email or password.");
+      setSnackText(getError(err));
+      setOpen(true);
     }
   };
+
+  useEffect(() => {
+    if (userInfo) navigate("/");
+  }, [navigate, userInfo, redirect]);
 
   return (
     <Fade cascade>
@@ -98,6 +118,16 @@ function SignInScreen() {
             </Link>
           </Grid>
         </Grid>
+        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+          <Alert
+            variant="filled"
+            onClose={handleClose}
+            severity="error"
+            sx={{ width: "100%" }}
+          >
+            {snackText}
+          </Alert>
+        </Snackbar>
       </div>
     </Fade>
   );
