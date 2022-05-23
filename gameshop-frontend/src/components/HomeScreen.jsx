@@ -44,7 +44,7 @@ function HomeScreen() {
 
   return (
     <div className="games-container">
-      <Helmet title={"GameShop - The Best Store For Gamers"} />
+      <Helmet title="GameShop - The Best Store For Gamers" />
       <h1 className="games-header">GAMES</h1>
       <Grid
         container

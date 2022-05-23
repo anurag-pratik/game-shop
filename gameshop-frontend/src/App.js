@@ -17,6 +17,7 @@ import MenuItem from "@mui/material/MenuItem";
 import PersonIcon from "@mui/icons-material/Person";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import AddressScreen from "./components/AddressScreen";
+import SignUpScreen from "./components/SignUpScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -63,7 +64,7 @@ function App() {
                 variant="contained"
               >
                 <PersonIcon />
-                {userInfo.name.substring(0, userInfo.name.indexOf(" "))}
+                {userInfo.name}
                 <ArrowDropDownIcon />
               </Button>
               <Menu
@@ -113,6 +114,7 @@ function App() {
             <Route path="/" element={<HomeScreen />} />
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/signin" element={<SignInScreen />} />
+            <Route path="/signup" element={<SignUpScreen />} />
             <Route path="/address" element={<AddressScreen />} />
           </Routes>
         </div>
