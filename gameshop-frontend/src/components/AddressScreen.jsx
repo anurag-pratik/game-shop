@@ -18,18 +18,15 @@ function AddressScreen() {
     userInfo,
   } = state;
 
-  const initialInput =
-    address !== {}
-      ? address
-      : {
-          name: "",
-          address: "",
-          city: "",
-          pincode: "",
-          country: "",
-        };
-
-  const [addressInput, setAddressInput] = useState(initialInput);
+  const [addressInput, setAddressInput] = useState(
+    address || {
+      name: "",
+      address: "",
+      city: "",
+      pincode: "",
+      country: "",
+    }
+  );
 
   const addressInputChangeHandler = async (e) => {
     const { name, value } = e.target;
@@ -39,10 +36,10 @@ function AddressScreen() {
   const addressSubmitHandler = () => {
     ctxDispatch({
       type: "SAVE_ADDRESS",
-      payload: { addressInput },
+      payload: addressInput,
     });
     localStorage.setItem("address", JSON.stringify(addressInput));
-    navigate("/payment");
+    navigate("/summary");
   };
 
   useEffect(() => {
@@ -135,7 +132,7 @@ function AddressScreen() {
               variant="contained"
               color="primary"
             >
-              Checkout
+              PROCEED
             </Button>
           </Grid>
         </Grid>

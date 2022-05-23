@@ -56,9 +56,8 @@ function CartScreen() {
           >
             <Grid item lg={8} md={12}>
               {cartItems.map((item) => (
-                <Fade left>
+                <Fade left key={item._id}>
                   <Grid
-                    key={item._id}
                     className="cart-item-container"
                     container
                     direction="row"

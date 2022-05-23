@@ -78,7 +78,7 @@ function SignUpScreen() {
   }, [navigate, userInfo, redirect]);
 
   return (
-    <Fade>
+    <Fade cascade>
       <div>
         <Helmet title="Sign Up | GameShop" />
         <div className="signup-form-container">

@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet-async";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import { Store } from "../Store";
 import Fade from "react-reveal/Fade";
+import Button from "@mui/material/Button";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -122,12 +123,13 @@ function GameScreen() {
                   <h2>Price: {game.price}</h2>
                 </Grid>
                 <Grid item className="game-cart-button game-item">
-                  <button
+                  <Button
+                    variant="contained"
                     onClick={addToCartHandler}
                     className="gamne-add-to-cart-button"
                   >
                     ADD TO CART <ShoppingCartCheckoutIcon />
-                  </button>
+                  </Button>
                 </Grid>
               </Grid>
             </Grid>

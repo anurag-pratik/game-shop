@@ -55,8 +55,17 @@ button:hover {
   color: white;
 }
 
+.MuiFilledInput-root {
+  background-color: rgb(80, 80, 80) !important;
+  color: white !important;
+}
+
 .MuiInputLabel-root {
-  color: indigo !important;
+  color: white !important;
+}
+
+.MuiButton-root {
+  background-color: indigo !important;
 }
 
 .user-profile-menu {
