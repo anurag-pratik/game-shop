@@ -19,6 +19,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import AddressScreen from "./components/AddressScreen";
 import SignUpScreen from "./components/SignUpScreen";
 import OrderSummary from "./components/OrderSummary";
+import DownloadScreen from "./components/DownloadScreen";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -118,6 +119,7 @@ function App() {
             <Route path="/signup" element={<SignUpScreen />} />
             <Route path="/address" element={<AddressScreen />} />
             <Route path="/summary" element={<OrderSummary />} />
+            <Route path="/order/:id" element={<DownloadScreen />} />
           </Routes>
         </div>
       </BrowserRouter>

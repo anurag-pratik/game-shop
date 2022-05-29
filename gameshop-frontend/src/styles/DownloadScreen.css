@@ -1,0 +1,10 @@
+.order-screen-container {
+  background-color: black;
+  border-radius: 20px;
+  padding: 3% 5%;
+}
+
+.paid-tag {
+  background-color: green !important;
+  color: white !important;
+}
