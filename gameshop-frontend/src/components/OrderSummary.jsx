@@ -1,13 +1,35 @@
 import "../styles/OrderSummary.css";
-import React, { useContext } from "react";
+import React, { useContext, useReducer } from "react";
 import Fade from "react-reveal/Fade";
 import { Helmet } from "react-helmet-async";
 import { Store } from "../Store";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getError } from "../utils";
+import axios from "axios";
+import CircularProgress from "@mui/material/CircularProgress";
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "CREATE_REQUEST":
+      return { ...state, loading: true };
+    case "CREATE_SUCCESS":
+      return { ...state, loading: false };
+    case "CREATE_FAIL":
+      return { ...state, loading: false };
+    default:
+      return state;
+  }
+};
 
 function OrderSummary() {
+  const navigate = useNavigate();
+
+  const [{ loading }, dispatch] = useReducer(reducer, {
+    loading: false,
+  });
+
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
 
@@ -17,17 +39,45 @@ function OrderSummary() {
     cart.cartItems.reduce((a, c) => a + c.quantity, 0)
   );
 
-  cart.totalAmount = round_to_two(
+  cart.itemsPrice = round_to_two(
     cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
 
-  cart.tax = round_to_two((8 / 100) * cart.totalAmount);
+  cart.tax = round_to_two((8 / 100) * cart.itemsPrice);
 
-  cart.totalPayableAmount = cart.totalAmount + cart.tax;
+  cart.totalPrice = cart.itemsPrice + cart.tax;
 
   const address = `Name: ${cart.address.name} 
   Address: ${cart.address.address}, ${cart.address.city},
   ${cart.address.country} - ${cart.address.pincode} `;
+
+  const submitOrderHandler = async () => {
+    try {
+      dispatch({ type: "CREATE_REQUEST" });
+      const { data } = await axios.post(
+        "/api/orders",
+        {
+          items: cart.cartItems,
+          address: cart.address,
+          itemsPrice: cart.itemsPrice,
+          tax: cart.tax,
+          totalPrice: cart.totalPrice,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      );
+      ctxDispatch({ type: "CART_CLEAR" });
+      dispatch({ type: "CREATE_SUCCESS" });
+      localStorage.removeItem("cartItems");
+      navigate(`/order/${data.order._id}`);
+    } catch (err) {
+      dispatch({ type: "CREATE_FAIL" });
+      alert(getError(err));
+    }
+  };
 
   return (
     <Fade cascade>
@@ -95,7 +145,7 @@ function OrderSummary() {
                       Total Amount ({cart.itemQuantity} items):
                     </Grid>
                     <Grid item xs={4}>
-                      ₹ {cart.totalAmount}
+                      ₹ {cart.itemsPrice}
                     </Grid>
                     <Grid item xs={8}>
                       Tax (8%):
@@ -107,7 +157,7 @@ function OrderSummary() {
                       Total Amount Payable:
                     </Grid>
                     <Grid item xs={4}>
-                      ₹ {cart.totalPayableAmount}
+                      ₹ {cart.totalPrice}
                     </Grid>
                   </Grid>
                 </div>
@@ -115,7 +165,10 @@ function OrderSummary() {
             </Fade>
             <Fade right>
               <div>
-                <Button variant="contained">Proceed to payment</Button>
+                <Button onClick={submitOrderHandler} variant="contained">
+                  Proceed to payment
+                </Button>
+                {loading && <CircularProgress color="secondary" />}
               </div>
             </Fade>
             <Fade right>
