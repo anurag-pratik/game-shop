@@ -34,6 +34,10 @@ app.use(cors(corsOpts));
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
 
+app.get("/api/keys/razorpay", (req, res) => {
+  res.send(process.env.RAZORPAY_KEY_ID || "sb");
+});
+
 app.use("/api/seed", seedRouter);
 app.use("/api/games", gameRouter);
 app.use("/api/users", userRouter);

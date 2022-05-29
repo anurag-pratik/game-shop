@@ -51,6 +51,69 @@ function OrderSummary() {
   Address: ${cart.address.address}, ${cart.address.city},
   ${cart.address.country} - ${cart.address.pincode} `;
 
+  const loadRazorPay = (scr) => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = scr;
+      script.onload = () => {
+        resolve(true);
+      };
+
+      script.onerror = () => {
+        resolve(false);
+      };
+
+      document.body.appendChild(script);
+    });
+  };
+
+  const showRazorPay = async (amount, id) => {
+    return new Promise(async (resolve) => {
+      const res = await loadRazorPay(
+        "https://checkout.razorpay.com/v1/checkout.js"
+      );
+
+      if (!res) {
+        alert("You are offline! Failed to load RazorPay SDK. :-(");
+        return;
+      }
+
+      const { data: clientId } = await axios.get("/api/keys/razorpay", {
+        headers: {
+          authorization: `Bearer ${userInfo.token}`,
+        },
+      });
+
+      var options = {
+        key: clientId,
+        amount: amount * 100,
+        currency: "INR",
+        name: "GameShop",
+        description: "Thank You for purchasing from GameShop.",
+        handler: function (response) {
+          resolve(true);
+          navigate(`/order/${id}`);
+        },
+        prefill: {
+          name: "Example Kumar",
+          email: "example.kumar@example.com",
+          contact: "9999999999",
+        },
+        theme: {
+          color: "#4b0082",
+        },
+      };
+
+      const paymentObject = new window.Razorpay(options);
+
+      paymentObject.open();
+
+      paymentObject.on("payment.failed", function (response) {
+        alert(response.error.description);
+      });
+    });
+  };
+
   const submitOrderHandler = async () => {
     try {
       dispatch({ type: "CREATE_REQUEST" });
@@ -69,10 +132,12 @@ function OrderSummary() {
           },
         }
       );
+
+      await showRazorPay(cart.totalPrice, data.order._id);
+
       ctxDispatch({ type: "CART_CLEAR" });
       dispatch({ type: "CREATE_SUCCESS" });
       localStorage.removeItem("cartItems");
-      navigate(`/order/${data.order._id}`);
     } catch (err) {
       dispatch({ type: "CREATE_FAIL" });
       alert(getError(err));
