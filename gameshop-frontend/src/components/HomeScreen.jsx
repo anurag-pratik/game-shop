@@ -7,6 +7,7 @@ import logger from "use-reducer-logger";
 import LoadingScreen from "./LoadingScreen";
 import ErrorScreen from "./ErrorScreen";
 import { Helmet } from "react-helmet-async";
+import { getError } from "../utils";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -35,7 +36,7 @@ function HomeScreen() {
         const res = await axios.get("/api/games");
         dispatch({ type: "FETCH_SUCCESSFUL", payload: res.data });
       } catch (error) {
-        dispatch({ type: "FETCH_FAIL", payload: error.message });
+        dispatch({ type: "FETCH_FAIL", payload: getError(error) });
       }
     };
 

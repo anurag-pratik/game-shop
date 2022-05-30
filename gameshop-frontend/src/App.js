@@ -20,6 +20,7 @@ import AddressScreen from "./components/AddressScreen";
 import SignUpScreen from "./components/SignUpScreen";
 import OrderSummary from "./components/OrderSummary";
 import DownloadScreen from "./components/DownloadScreen";
+import OrderHistory from "./components/OrderHistory";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -120,6 +121,7 @@ function App() {
             <Route path="/address" element={<AddressScreen />} />
             <Route path="/summary" element={<OrderSummary />} />
             <Route path="/order/:id" element={<DownloadScreen />} />
+            <Route path="/orders" element={<OrderHistory />} />
           </Routes>
         </div>
       </BrowserRouter>
