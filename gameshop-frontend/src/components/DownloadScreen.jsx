@@ -83,7 +83,7 @@ function OrderScreen() {
             <Grid item xs={12}>
               <h1 className="download-header-text">Order - {orderId}</h1>
             </Grid>
-            <Grid item xs={7}>
+            <Grid item lg={7} xs={12}>
               {order.items.map((item) => (
                 <Fade left>
                   <Grid
@@ -95,20 +95,20 @@ function OrderScreen() {
                     justify="center"
                     align="left"
                   >
-                    <Grid item xs={2}>
+                    <Grid item lg={2} xs={4}>
                       <img
                         className="cart-item-image"
                         alt={item.slug}
                         src={item.image}
                       ></img>
                     </Grid>
-                    <Grid item xs={5}>
+                    <Grid item lg={5} xs={5}>
                       <Link to={`/game/${item.slug}`}>{item.name}</Link>
                     </Grid>
-                    <Grid item xs={1}>
+                    <Grid item lg={1} xs={3}>
                       {item.quantity}
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item lg={2} xs={12}>
                       ₹ {item.price}
                     </Grid>
                   </Grid>

@@ -5,3 +5,10 @@
   padding: 3% 5%;
   width: max-content;
 }
+
+@media only screen and (max-width: 900px) {
+  .address-form-container {
+    padding: 10%;
+    width: 80%;
+  }
+}

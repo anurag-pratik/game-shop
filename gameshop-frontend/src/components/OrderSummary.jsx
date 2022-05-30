@@ -158,7 +158,7 @@ function OrderSummary() {
           <Grid item xs={12}>
             <h1 className="summary-header-text">Order Summary</h1>
           </Grid>
-          <Grid item xs={7}>
+          <Grid item lg={7} xs={12}>
             {cart.cartItems.map((item) => (
               <Fade left>
                 <Grid
@@ -170,20 +170,20 @@ function OrderSummary() {
                   justify="center"
                   align="left"
                 >
-                  <Grid item xs={2}>
+                  <Grid item lg={2} xs={3.5}>
                     <img
                       className="cart-item-image"
                       alt={item.slug}
                       src={item.image}
                     ></img>
                   </Grid>
-                  <Grid item xs={5}>
+                  <Grid item lg={6} xs={6.5}>
                     <Link to={`/game/${item.slug}`}>{item.name}</Link>
                   </Grid>
-                  <Grid item xs={1}>
+                  <Grid item lg={2} xs={2}>
                     {item.quantity}
                   </Grid>
-                  <Grid item xs={2}>
+                  <Grid item lg={2} xs={12}>
                     ₹ {item.price}
                   </Grid>
                 </Grid>
@@ -198,35 +198,33 @@ function OrderSummary() {
           <Grid item xs={5}>
             <Fade right>
               <div className="summary-card">
-                <div>
-                  <Grid
-                    className="cart-item-container"
-                    container
-                    direction="row"
-                    spacing={1}
-                    justify="center"
-                    align="left"
-                  >
-                    <Grid item xs={8}>
-                      Total Amount ({cart.itemQuantity} items):
-                    </Grid>
-                    <Grid item xs={4}>
-                      ₹ {cart.itemsPrice}
-                    </Grid>
-                    <Grid item xs={8}>
-                      Tax (8%):
-                    </Grid>
-                    <Grid item xs={4}>
-                      ₹ {cart.tax}
-                    </Grid>
-                    <Grid item xs={8}>
-                      Total Amount Payable:
-                    </Grid>
-                    <Grid item xs={4}>
-                      ₹ {cart.totalPrice}
-                    </Grid>
+                <Grid
+                  className="cart-item-container"
+                  container
+                  direction="row"
+                  spacing={1}
+                  justify="center"
+                  align="left"
+                >
+                  <Grid item lg={8} xs={6}>
+                    Total Amount ({cart.itemQuantity} items):
                   </Grid>
-                </div>
+                  <Grid item lg={4} xs={6}>
+                    ₹ {cart.itemsPrice}
+                  </Grid>
+                  <Grid item lg={8} xs={6}>
+                    Tax (8%):
+                  </Grid>
+                  <Grid item lg={4} xs={6}>
+                    ₹ {cart.tax}
+                  </Grid>
+                  <Grid item lg={8} xs={6}>
+                    Total Amount Payable:
+                  </Grid>
+                  <Grid item lg={4} xs={6}>
+                    ₹ {cart.totalPrice}
+                  </Grid>
+                </Grid>
               </div>
             </Fade>
             <Fade right>

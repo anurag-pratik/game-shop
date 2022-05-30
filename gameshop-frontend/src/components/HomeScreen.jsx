@@ -3,7 +3,6 @@ import "../styles/HomeScreen.css";
 import GameCard from "./GameCard";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
-import logger from "use-reducer-logger";
 import LoadingScreen from "./LoadingScreen";
 import ErrorScreen from "./ErrorScreen";
 import { Helmet } from "react-helmet-async";
@@ -23,7 +22,7 @@ const reducer = (state, action) => {
 };
 
 function HomeScreen() {
-  const [{ loading, error, games }, dispatch] = useReducer(logger(reducer), {
+  const [{ loading, error, games }, dispatch] = useReducer(reducer, {
     loading: true,
     error: "",
     games: [],

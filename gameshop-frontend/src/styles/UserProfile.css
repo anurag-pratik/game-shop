@@ -8,3 +8,9 @@
 .profile-form-container {
   margin: auto;
 }
+
+@media only screen and (max-width: 900px) {
+  .profile-container {
+    padding: 10%;
+  }
+}

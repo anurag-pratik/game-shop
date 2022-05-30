@@ -113,3 +113,23 @@ body {
   margin-left: 5px;
   margin-top: 4px;
 }
+
+@media only screen and (max-width: 900px) {
+  .header-text {
+    padding-top: 25px;
+    font-size: 1.6rem;
+  }
+
+  .header-container {
+    height: 130px;
+  }
+  .user-profile-menu {
+    position: relative;
+    left: 2px;
+  }
+
+  .nav-signin {
+    top: 12px;
+    right: 80px;
+  }
+}

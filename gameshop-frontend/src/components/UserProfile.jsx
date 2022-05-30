@@ -89,7 +89,7 @@ function UserProfile() {
         className="profile-form-container"
       >
         <Grid item xs={12}>
-          Update Profile
+          <h2>Update Profile</h2>
         </Grid>
         <Grid item xs={12}>
           <TextField

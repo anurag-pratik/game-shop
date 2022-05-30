@@ -86,7 +86,7 @@ function AddressScreen() {
           className="sign-in-grid"
         >
           <Grid item xs={12}>
-            Billing Address
+            <h2>Billing Address</h2>
           </Grid>
           <Grid item xs={12}>
             <TextField

@@ -66,17 +66,17 @@ function CartScreen() {
                     justify="center"
                     align="left"
                   >
-                    <Grid item xs={1.5}>
+                    <Grid item md={1.5} xs={3.5}>
                       <img
                         className="cart-item-image"
                         alt={item.slug}
                         src={item.image}
                       ></img>
                     </Grid>
-                    <Grid item xs={5}>
+                    <Grid item md={5} xs={4.5}>
                       <Link to={`/game/${item.slug}`}>{item.name}</Link>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item md={2} xs={4}>
                       <ButtonGroup
                         variant="outlined"
                         aria-label="outlined button group"
@@ -102,10 +102,10 @@ function CartScreen() {
                         </IconButton>
                       </ButtonGroup>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item md={2} xs={6}>
                       <div className="cart-price-cont">₹ {item.price}</div>
                     </Grid>
-                    <Grid item xs={1.5}>
+                    <Grid item md={1.5} xs={6}>
                       <div className="cart-price-cont">
                         <IconButton
                           className="icon-button"

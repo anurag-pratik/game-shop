@@ -19,3 +19,13 @@
 .history-alt-item {
   padding-top: 18px !important;
 }
+
+@media only screen and (max-width: 900px) {
+  .orders-container {
+    padding: 10%;
+  }
+  .order-history-item {
+    margin-top: 20px !important;
+    height: 160px;
+  }
+}

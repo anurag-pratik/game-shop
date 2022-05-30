@@ -5,3 +5,9 @@
   margin: 0 auto;
   font-size: 1.5rem;
 }
+
+@media only screen and (max-width: 900px) {
+  .error-container {
+    padding: 10%;
+  }
+}

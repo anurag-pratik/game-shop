@@ -32,3 +32,20 @@
   left: 220px;
   top: 3px;
 }
+
+@media only screen and (max-width: 900px) {
+  .summary-container {
+    padding: 10%;
+  }
+
+  .summary-card {
+    width: 65vw;
+    padding: 20%;
+    margin-top: 30px;
+  }
+  .summary-card-2 {
+    width: 65vw;
+    padding: 20%;
+    margin-top: 30px;
+  }
+}

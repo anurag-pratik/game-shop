@@ -26,3 +26,18 @@
   line-height: 22px;
   padding-bottom: 15px;
 }
+
+@media only screen and (max-width: 900px) {
+  .order-screen-container {
+    padding: 10%;
+    overflow: hidden;
+  }
+  .download-header-text {
+    font-size: 1.2rem;
+  }
+  .summary-card-3 {
+    width: 65vw;
+    padding: 20%;
+    margin-top: 30px;
+  }
+}

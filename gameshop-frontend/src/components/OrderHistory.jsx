@@ -71,16 +71,16 @@ function OrderHistory() {
               justify="center"
               align="center"
             >
-              <Grid item xs={4}>
+              <Grid item lg={4} xs={12}>
                 <h3>Order ID</h3>
               </Grid>
-              <Grid item xs={2}>
+              <Grid item lg={2} xs={6}>
                 <h3>Date</h3>
               </Grid>
-              <Grid item xs={3}>
+              <Grid item lg={3} xs={6}>
                 <h3>Total Amount</h3>
               </Grid>
-              <Grid item xs={3}></Grid>
+              <Grid item lg={3}></Grid>
               {orders.map((order) => {
                 return (
                   <Grid
@@ -91,16 +91,16 @@ function OrderHistory() {
                     align="center"
                     className="order-history-item"
                   >
-                    <Grid className="history-alt-item" item xs={4}>
+                    <Grid className="history-alt-item" item lg={4} xs={12}>
                       {order._id}
                     </Grid>
-                    <Grid className="history-alt-item" item xs={2}>
+                    <Grid className="history-alt-item" item lg={2} xs={6}>
                       {order.createdAt.substring(0, 10)}
                     </Grid>
-                    <Grid className="history-alt-item" item xs={3}>
+                    <Grid className="history-alt-item" item lg={3} xs={6}>
                       {order.totalPrice}
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item lg={3} xs={12}>
                       <Button
                         variant="contained"
                         className="history-details-btn"

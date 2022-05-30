@@ -80,3 +80,15 @@
   margin-top: 4px;
   margin-right: 2px;
 }
+
+@media only screen and (max-width: 900px) {
+  .game-card {
+    max-width: 300px;
+  }
+  .dow-text {
+    font-size: 0.9rem;
+  }
+  .price-text {
+    font-size: 0.8rem;
+  }
+}

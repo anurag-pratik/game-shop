@@ -35,3 +35,13 @@
 .cart-price-cont {
   padding-top: 13px;
 }
+
+@media only screen and (max-width: 900px) {
+  .cart-item-container {
+    height: 180px;
+    margin-bottom: 28px;
+  }
+  .cart-main-container {
+    padding: 10%;
+  }
+}

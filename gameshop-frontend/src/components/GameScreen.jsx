@@ -40,9 +40,7 @@ function GameScreen() {
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" });
       try {
-        const res = await axios.get(
-          `http://localhost:8000/api/games/slug/${slug}`
-        );
+        const res = await axios.get(`/api/games/slug/${slug}`);
         dispatch({ type: "FETCH_SUCCESSFUL", payload: res.data });
       } catch (error) {
         dispatch({ type: "FETCH_FAIL", payload: error });

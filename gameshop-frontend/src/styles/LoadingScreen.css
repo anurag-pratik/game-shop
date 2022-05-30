@@ -6,3 +6,9 @@
   align-items: center;
   margin: 0 auto;
 }
+
+@media only screen and (max-width: 900px) {
+  .loading-container {
+    padding: 10%;
+  }
+}
