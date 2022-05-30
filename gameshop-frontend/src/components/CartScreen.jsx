@@ -50,9 +50,10 @@ function CartScreen() {
           <Grid
             container
             direction="row"
-            spacing={1}
+            spacing={4}
             justify="center"
             align="left"
+            className="cart-inner-container"
           >
             <Grid item lg={8} md={12}>
               {cartItems.map((item) => (
@@ -89,8 +90,9 @@ function CartScreen() {
                         >
                           <RemoveIcon />
                         </IconButton>
-                        <div>{item.quantity}</div>
+                        <div className="quant-container">{item.quantity}</div>
                         <IconButton
+                          className="icon-button"
                           color="primary"
                           onClick={() => {
                             updateCartHandler(item, item.quantity + 1);
@@ -101,24 +103,27 @@ function CartScreen() {
                       </ButtonGroup>
                     </Grid>
                     <Grid item xs={2}>
-                      ₹ {item.price}
+                      <div className="cart-price-cont">₹ {item.price}</div>
                     </Grid>
                     <Grid item xs={1.5}>
-                      <IconButton
-                        color="primary"
-                        onClick={() => {
-                          removeItemHandler(item);
-                        }}
-                      >
-                        <DeleteIcon />
-                      </IconButton>
+                      <div className="cart-price-cont">
+                        <IconButton
+                          className="icon-button"
+                          color="primary"
+                          onClick={() => {
+                            removeItemHandler(item);
+                          }}
+                        >
+                          <DeleteIcon className="icon-button" />
+                        </IconButton>
+                      </div>
                     </Grid>
                   </Grid>
                 </Fade>
               ))}
             </Grid>
             <Grid item lg={4} md={12}>
-              <h2>
+              <h2 className="cart-proceed-text">
                 Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
                 items): ₹{" "}
                 {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}

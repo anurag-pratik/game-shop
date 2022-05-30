@@ -11,5 +11,24 @@
 .summary-card {
   background-color: rgb(77, 77, 77);
   border-radius: 20px;
-  padding: 4%;
+  padding: 5% 4% 0.1% 4%;
+  margin-bottom: 25px;
+}
+
+.summary-card-2 {
+  background-color: rgb(77, 77, 77);
+  border-radius: 20px;
+  padding: 5% 4% 3% 4%;
+  margin-bottom: 25px;
+}
+
+.summary-header-text {
+  margin-bottom: 10px;
+}
+
+.progress-container {
+  display: inline-block;
+  position: absolute;
+  left: 220px;
+  top: 3px;
 }

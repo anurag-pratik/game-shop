@@ -6,7 +6,10 @@
 }
 
 .main-container {
-  background-color: rgb(58, 58, 58);
+  background-color: rgb(29, 29, 29);
+
+  background-image: url("https://www.transparenttextures.com/patterns/skulls.png");
+
   padding: 3%;
 }
 
@@ -31,7 +34,7 @@ button:hover {
 }
 
 .header-container {
-  min-height: 60px;
+  min-height: 70px;
   width: 100%;
   background-color: black;
   color: rgb(149, 0, 255);
@@ -40,14 +43,16 @@ button:hover {
 
 .header-text {
   margin: 0;
-  padding-top: 10px;
+  padding-top: 20px;
   display: inline-block;
+  font-family: "Press Start 2P", cursive !important;
+  font-size: 2rem;
 }
 
 .header-cart-icon {
   position: absolute;
   top: 20px;
-  right: 30px;
+  right: 25px;
 }
 
 .MuiBadge-badge {
@@ -66,16 +71,45 @@ button:hover {
 
 .MuiButton-root {
   background-color: indigo !important;
+  font-family: inherit !important;
+  border-radius: 5px !important;
+}
+
+.MuiButton-root:hover {
+  filter: brightness(120%);
 }
 
 .user-profile-menu {
   position: absolute;
-  top: 10px;
-  right: 75px;
+  top: 16px;
+  right: 85px;
 }
 
 .nav-signin {
   position: absolute;
   top: 12px;
   right: 80px;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #4c4b4b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.user-name {
+  margin-left: 5px;
+  margin-top: 4px;
 }

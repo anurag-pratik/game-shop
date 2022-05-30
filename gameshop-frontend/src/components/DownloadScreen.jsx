@@ -81,10 +81,9 @@ function OrderScreen() {
             spacing={2}
           >
             <Grid item xs={12}>
-              Order - {orderId}
+              <h1 className="download-header-text">Order - {orderId}</h1>
             </Grid>
             <Grid item xs={7}>
-              Items
               {order.items.map((item) => (
                 <Fade left>
                   <Grid
@@ -119,8 +118,7 @@ function OrderScreen() {
 
             <Grid item xs={5}>
               <Fade right>
-                <div className="summary-card">
-                  Payment summary
+                <div className="summary-card-3">
                   <div>
                     <Grid
                       className="cart-item-container"
@@ -162,8 +160,8 @@ function OrderScreen() {
               </Fade>
               <Fade right>
                 <div className="billing-summ-container summary-card">
-                  Billing Address
-                  <div>
+                  <h3>Billing Address</h3>
+                  <div className="download-address">
                     {order.address.name}
                     <br />
                     {order.address.address}

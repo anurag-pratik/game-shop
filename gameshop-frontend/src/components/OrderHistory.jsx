@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { getError } from "../utils";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
+import Fade from "react-reveal/Fade";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -53,67 +54,71 @@ function OrderHistory() {
   }, [userInfo]);
 
   return (
-    <div className="orders-container">
-      <Helmet title="Your Orders | GameShop" />
-      {loading ? (
-        <LoadingScreen />
-      ) : error ? (
-        <ErrorScreen message={error} />
-      ) : (
-        <div>
-          Your Orders
-          <Grid
-            container
-            direction="row"
-            spacing={1}
-            justify="center"
-            align="center"
-          >
-            <Grid item xs={4}>
-              ID
+    <Fade cascade>
+      <div className="orders-container">
+        <Helmet title="Your Orders | GameShop" />
+        {loading ? (
+          <LoadingScreen />
+        ) : error ? (
+          <ErrorScreen message={error} />
+        ) : (
+          <div>
+            <h1 className="history-header">Your Orders</h1>
+            <Grid
+              container
+              direction="row"
+              spacing={1}
+              justify="center"
+              align="center"
+            >
+              <Grid item xs={4}>
+                <h3>Order ID</h3>
+              </Grid>
+              <Grid item xs={2}>
+                <h3>Date</h3>
+              </Grid>
+              <Grid item xs={3}>
+                <h3>Total Amount</h3>
+              </Grid>
+              <Grid item xs={3}></Grid>
+              {orders.map((order) => {
+                return (
+                  <Grid
+                    container
+                    direction="row"
+                    spacing={1}
+                    justify="center"
+                    align="center"
+                    className="order-history-item"
+                  >
+                    <Grid className="history-alt-item" item xs={4}>
+                      {order._id}
+                    </Grid>
+                    <Grid className="history-alt-item" item xs={2}>
+                      {order.createdAt.substring(0, 10)}
+                    </Grid>
+                    <Grid className="history-alt-item" item xs={3}>
+                      {order.totalPrice}
+                    </Grid>
+                    <Grid item xs={3}>
+                      <Button
+                        variant="contained"
+                        className="history-details-btn"
+                        onClick={() => {
+                          navigate(`/order/${order._id}`);
+                        }}
+                      >
+                        Details
+                      </Button>
+                    </Grid>
+                  </Grid>
+                );
+              })}
             </Grid>
-            <Grid item xs={2}>
-              Date
-            </Grid>
-            <Grid item xs={3}>
-              Total
-            </Grid>
-            <Grid item xs={3}></Grid>
-            {orders.map((order) => {
-              return (
-                <Grid
-                  container
-                  direction="row"
-                  spacing={1}
-                  justify="center"
-                  align="center"
-                >
-                  <Grid item xs={4}>
-                    {order._id}
-                  </Grid>
-                  <Grid item xs={2}>
-                    {order.createdAt.substring(0, 10)}
-                  </Grid>
-                  <Grid item xs={3}>
-                    {order.totalPrice}
-                  </Grid>
-                  <Grid item xs={3}>
-                    <Button
-                      variant="contained"
-                      onClick={() => {
-                        navigate(`/order/${order._id}`);
-                      }}
-                    >
-                      Details
-                    </Button>
-                  </Grid>
-                </Grid>
-              );
-            })}
-          </Grid>
-        </div>
-      )}
-    </div>
+          </div>
+        )}
+      </div>
+    </Fade>
   );
 }
 

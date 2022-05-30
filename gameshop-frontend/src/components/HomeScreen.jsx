@@ -50,7 +50,7 @@ function HomeScreen() {
       <Grid
         container
         direction="row"
-        spacing={5}
+        spacing={10}
         justify="center"
         align="center"
       >

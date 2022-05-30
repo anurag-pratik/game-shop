@@ -19,13 +19,15 @@ function AddressScreen() {
   } = state;
 
   const [addressInput, setAddressInput] = useState(
-    address || {
-      name: "",
-      address: "",
-      city: "",
-      pincode: "",
-      country: "",
-    }
+    address !== {}
+      ? address
+      : {
+          name: "",
+          address: "",
+          city: "",
+          pincode: "",
+          country: "",
+        }
   );
 
   const addressInputChangeHandler = async (e) => {
@@ -45,6 +47,31 @@ function AddressScreen() {
   useEffect(() => {
     if (!userInfo) navigate("/signin?redirect=/address");
   }, [userInfo, navigate]);
+
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    const checkInput = () => {
+      let i = 0;
+
+      if (!addressInput["name"]) {
+        setDisabled(true);
+        return;
+      }
+
+      for (const ele in addressInput) {
+        if (addressInput[ele] === "") {
+          setDisabled(true);
+          return;
+        }
+        i++;
+      }
+      if (i === 5) setDisabled(false);
+    };
+
+    checkInput();
+    console.log(addressInput);
+  }, [addressInput]);
 
   return (
     <Fade cascade>
@@ -128,6 +155,7 @@ function AddressScreen() {
           </Grid>
           <Grid item xs={12}>
             <Button
+              disabled={disabled}
               onClick={addressSubmitHandler}
               variant="contained"
               color="primary"

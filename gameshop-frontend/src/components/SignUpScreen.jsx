@@ -77,6 +77,22 @@ function SignUpScreen() {
     if (userInfo) navigate(redirect || "/");
   }, [navigate, userInfo, redirect]);
 
+  useEffect(() => {
+    const checkInput = () => {
+      for (const ele in signupInput) {
+        if (signupInput[ele] === "") {
+          setDisabled(true);
+          return;
+        }
+      }
+      setDisabled(false);
+    };
+
+    checkInput();
+  }, [signupInput]);
+
+  const [disabled, setDisabled] = useState(true);
+
   return (
     <Fade cascade>
       <div>
@@ -147,6 +163,7 @@ function SignUpScreen() {
                 onClick={signupSubmitHandler}
                 variant="contained"
                 color="primary"
+                disabled={disabled}
               >
                 SIGN UP
               </Button>
@@ -155,7 +172,7 @@ function SignUpScreen() {
               Already have an account?{" "}
               <Link to={`/signin?redirect=${redirect}`}>
                 {" "}
-                <span>Sign In</span>
+                <u>Sign In</u>
               </Link>
             </Grid>
           </Grid>

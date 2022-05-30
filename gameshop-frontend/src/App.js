@@ -69,7 +69,7 @@ function App() {
                 variant="contained"
               >
                 <PersonIcon />
-                {userInfo.name}
+                <span className="user-name">{userInfo.name}</span>
                 <ArrowDropDownIcon />
               </Button>
               <Menu
@@ -93,7 +93,7 @@ function App() {
               </Menu>
             </div>
           ) : (
-            <div className="nav-signin">
+            <div className="user-profile-menu">
               <Link to="/signin">
                 <Button variant="contained">Sign In</Button>
               </Link>
@@ -107,7 +107,7 @@ function App() {
                   0
                 )}
               >
-                <ShoppingCartIcon />
+                <ShoppingCartIcon fontSize="large" />
               </Badge>
             </div>
           </Link>

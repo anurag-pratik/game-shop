@@ -6,8 +6,32 @@
 
 .cart-item-container {
   height: 120px;
+  border: 2px solid grey;
+  border-radius: 10px;
+  padding-top: 8px;
+  margin-bottom: 18px;
 }
 
 .cart-item-image {
-  height: 100px;
+  height: 90px;
+  width: 75px;
+}
+
+.cart-inner-container {
+  padding: 40px 0;
+}
+
+.icon-button {
+  position: absolute;
+}
+.quant-container {
+  padding-top: 12px;
+}
+
+.cart-proceed-text {
+  margin-bottom: 20px;
+}
+
+.cart-price-cont {
+  padding-top: 13px;
 }

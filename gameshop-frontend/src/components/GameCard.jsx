@@ -39,17 +39,17 @@ function GameCard(props) {
               align="left"
             >
               <Grid item xs={12} className="card-item-1 card-item">
-                <h2>{game.name}</h2>
+                <h2 className="name-text">{game.name}</h2>
               </Grid>
               <Grid item xs={12} className="card-item-2 card-item">
-                <h3>{game.developer}</h3>
+                <h3 className="dev-text">{game.developer}</h3>
               </Grid>
 
               <Grid item xs={6} className="card-item-3 card-item">
                 {game.rating} ⭐ ({game.ratingCount})
               </Grid>
               <Grid item xs={6} align="right" className="card-item-3 card-item">
-                <h4>[{game.downloadCount} downloads]</h4>
+                <h4 className="dow-text">[{game.downloadCount} downloads]</h4>
               </Grid>
 
               <Grid item xs={6} className="card-item-4 card-item">
@@ -61,7 +61,7 @@ function GameCard(props) {
                 ></img>
               </Grid>
               <Grid item xs={6} className="card-item-4 card-item">
-                <h4>{game.description}</h4>
+                <h4 className="desc-text">{game.description}</h4>
               </Grid>
             </Grid>
           </Link>
@@ -74,10 +74,10 @@ function GameCard(props) {
             align="left"
             className="bottom-item"
           >
-            <Grid item xs={6} className="card-item-5 card-item">
-              <h3>Price: {game.price}</h3>
+            <Grid item xs={4} className="card-item-5 card-item">
+              <h3 className="price-text">Price: ₹ {game.price}</h3>
             </Grid>
-            <Grid item xs={6} align="right" className="card-item-5 card-item">
+            <Grid item xs={8} align="right" className="card-item-5 card-item">
               <Button
                 variant="contained"
                 className="add-to-cart-button"
@@ -85,7 +85,8 @@ function GameCard(props) {
                   addToCartHandler(game);
                 }}
               >
-                ADD TO CART <ShoppingCartCheckoutIcon />
+                <span className="cart-text">ADD TO CART</span>
+                <ShoppingCartCheckoutIcon />
               </Button>
             </Grid>
           </Grid>

@@ -114,7 +114,7 @@ function SignInScreen() {
             New User?{" "}
             <Link to={`/signup?redirect=${redirect}`}>
               {" "}
-              <span>Sign Up</span>
+              <u>Sign Up</u>
             </Link>
           </Grid>
         </Grid>

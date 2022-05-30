@@ -7,4 +7,16 @@
 .games-header {
   text-align: center;
   margin-bottom: 20px;
+  font-weight: 800;
+  animation: colorchange 1s ease-in-out infinite alternate;
+}
+
+@keyframes colorchange {
+  0% {
+    color: #8a2be2;
+  }
+
+  100% {
+    color: rgb(191, 0, 255);
+  }
 }

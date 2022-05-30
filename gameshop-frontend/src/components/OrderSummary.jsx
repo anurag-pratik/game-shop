@@ -45,10 +45,10 @@ function OrderSummary() {
 
   cart.tax = round_to_two((8 / 100) * cart.itemsPrice);
 
-  cart.totalPrice = cart.itemsPrice + cart.tax;
+  cart.totalPrice = Math.round(cart.itemsPrice + cart.tax);
 
-  const address = `Name: ${cart.address.name} 
-  Address: ${cart.address.address}, ${cart.address.city},
+  const address = `${cart.address.name},
+   ${cart.address.address}, ${cart.address.city},
   ${cart.address.country} - ${cart.address.pincode} `;
 
   const loadRazorPay = (scr) => {
@@ -156,7 +156,7 @@ function OrderSummary() {
           spacing={2}
         >
           <Grid item xs={12}>
-            Order Summary
+            <h1 className="summary-header-text">Order Summary</h1>
           </Grid>
           <Grid item xs={7}>
             {cart.cartItems.map((item) => (
@@ -190,13 +190,14 @@ function OrderSummary() {
               </Fade>
             ))}
             <br />
-            <Link to="/cart">Edit</Link>
+            <Link to="/cart">
+              <Button variant="contained">edit</Button>
+            </Link>
           </Grid>
 
           <Grid item xs={5}>
             <Fade right>
               <div className="summary-card">
-                Payment summary
                 <div>
                   <Grid
                     className="cart-item-container"
@@ -233,15 +234,22 @@ function OrderSummary() {
                 <Button onClick={submitOrderHandler} variant="contained">
                   Proceed to payment
                 </Button>
-                {loading && <CircularProgress color="secondary" />}
+                {loading && (
+                  <div className="progress-container">
+                    <CircularProgress color="secondary" size={28} />
+                  </div>
+                )}
               </div>
             </Fade>
             <Fade right>
-              <div className="billing-summ-container summary-card">
-                Billing Address
+              <div className="billing-summ-container summary-card-2">
+                <h3>Billing Address:</h3>
+                <br />
                 <div>{address}</div>
                 <br />
-                <Link to="/address">Edit</Link>
+                <Link to="/address">
+                  <Button variant="contained">edit</Button>
+                </Link>
               </div>
             </Fade>
           </Grid>

@@ -105,22 +105,24 @@ function GameScreen() {
                   <h1> {game.name}</h1>
                 </Grid>
                 <Grid item className="game-developer game-item">
-                  <h3> {game.developer}</h3>
+                  <h3 className="dev-text"> {game.developer}</h3>
                 </Grid>
                 <Grid item className="game-rating game-item">
-                  <h3>
+                  <h3 className="dow-text">
                     {game.rating} ⭐ ({game.ratingCount} ratings) [
                     {game.downloadCount} downloads]
                   </h3>
                 </Grid>
                 <Grid item className="game-category game-item">
-                  <h4>Category: {game.category}</h4>
+                  <h4>Category : {game.category}</h4>
                 </Grid>
                 <Grid item className="game-description game-item">
-                  <h4>Description: {game.description}</h4>
+                  <h4 className="desc-text game-desc">
+                    Description : {game.description}
+                  </h4>
                 </Grid>
                 <Grid item className="game-price game-item">
-                  <h2>Price: {game.price}</h2>
+                  <h2>Price : ₹ {game.price}</h2>
                 </Grid>
                 <Grid item className="game-cart-button game-item">
                   <Button
