@@ -21,6 +21,7 @@ import SignUpScreen from "./components/SignUpScreen";
 import OrderSummary from "./components/OrderSummary";
 import DownloadScreen from "./components/DownloadScreen";
 import OrderHistory from "./components/OrderHistory";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -42,6 +43,7 @@ function App() {
     ctxDispatch({ type: "USER_SIGNOUT" });
     localStorage.removeItem("userInfo");
     localStorage.removeItem("address");
+    window.location.href = "/signin";
   };
 
   return (
@@ -122,6 +124,7 @@ function App() {
             <Route path="/summary" element={<OrderSummary />} />
             <Route path="/order/:id" element={<DownloadScreen />} />
             <Route path="/orders" element={<OrderHistory />} />
+            <Route path="/profile" element={<UserProfile />} />
           </Routes>
         </div>
       </BrowserRouter>

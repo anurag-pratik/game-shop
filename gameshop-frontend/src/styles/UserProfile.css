@@ -1,0 +1,10 @@
+.profile-container {
+  background-color: black;
+  border-radius: 20px;
+  padding: 3% 5%;
+  margin: auto;
+}
+
+.profile-form-container {
+  margin: auto;
+}

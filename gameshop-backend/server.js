@@ -24,7 +24,7 @@ const app = express();
 const corsOpts = {
   origin: "*",
 
-  methods: ["GET", "POST"],
+  methods: ["GET", "POST", "PUT"],
 
   allowedHeaders: ["Content-Type"],
 };
