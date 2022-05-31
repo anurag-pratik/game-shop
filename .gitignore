@@ -12,6 +12,7 @@ node_modules
 build
 
 # misc
+data.js
 .env
 .DS_Store
 .env.local

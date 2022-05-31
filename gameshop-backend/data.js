@@ -14,6 +14,12 @@ const data = {
       password: bcrypt.hashSync("Aniket1234"),
       isAdmin: false,
     },
+    {
+      name: "Anurag Pratik",
+      email: "test@gameshop.com",
+      password: bcrypt.hashSync("test1234"),
+      isAdmin: false,
+    },
   ],
   games: [
     {
