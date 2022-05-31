@@ -1,5 +1,4 @@
 import express, { urlencoded } from "express";
-import data from "./data.js";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
@@ -8,6 +7,7 @@ import gameRouter from "./routes/gameRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import downloadRouter from "./routes/downloadRouter.js";
+import path from "path";
 
 dotenv.config();
 
@@ -44,6 +44,13 @@ app.use("/api/games", gameRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 app.use("/api/download", downloadRouter);
+
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "/gameshop-frontend/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/gameshop-frontend/build/index.html"));
+});
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
