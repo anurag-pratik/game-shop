@@ -42,9 +42,13 @@ function CartScreen() {
       <div className="cart-main-container">
         <Helmet title={"Your Cart | GameShop"} />
         <h1>Your Cart</h1>
+        <br />
         {cartItems.length === 0 ? (
           <h2>
-            Your cart is empty. <Link to="/">Go Shopping</Link>
+            Your cart is empty.{" "}
+            <Link to="/">
+              <u>Go Shopping</u>
+            </Link>
           </h2>
         ) : (
           <Grid

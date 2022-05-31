@@ -70,7 +70,6 @@ function AddressScreen() {
     };
 
     checkInput();
-    console.log(addressInput);
   }, [addressInput]);
 
   return (
