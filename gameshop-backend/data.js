@@ -95,7 +95,7 @@ const data = {
       developer: "Rockstar Games",
       rating: 4.9,
       ratingCount: 32096,
-      downloadCount: 945329,
+      downloadCount: 94539,
       description:
         "Grand Theft Auto: Vice City is a 2002 action-adventure game developed by Rockstar North and published by Rockstar Games. It is the fourth main entry in the Grand Theft Auto series, following 2001's Grand Theft Auto III, and the sixth instalment overall.",
     },
@@ -182,6 +182,56 @@ const data = {
       downloadCount: 9568673,
       description:
         "Counter-Strike (also known as Half-Life: Counter-Strike or Counter-Strike 1.6)[5] is a first-person shooter game developed by Valve. It was initially developed and released as a Half-Life modification by Minh Gooseman Le and Jess Cliffe in 1999, before Le and Cliffe were hired and the game's intellectual property acquired. Counter-Strike was released by Valve for Microsoft Windows in 2000, and is the first installment in the Counter-Strike series. Several remakes and ports were released on Xbox, as well as OS X and Linux.",
+    },
+  ],
+  links: [
+    {
+      slug: "valorant",
+      link: "https://drive.google.com/uc?id=1z72waT6F1XM2kVk6I9N6zWyTudArTaSS&export=download",
+    },
+    {
+      slug: "rainbow-six-siege",
+      link: "https://drive.google.com/uc?id=128Gq6Na8c82mZECrCDQCELQRZYUSgaO0&export=download",
+    },
+    {
+      slug: "ghost-recon-wildlands",
+      link: "https://drive.google.com/uc?id=1gakQnfwDEHDi_Futv49mvMhBKlBb-p9y&export=download",
+    },
+    {
+      slug: "road-rash",
+      link: "https://drive.google.com/uc?id=17pIjPSyRF0rpIvTVTLWwMQ--LuOLkEst&export=download",
+    },
+    {
+      slug: "cricket-07",
+      link: "https://drive.google.com/uc?id=1gSk8Uxm6k-eMoolJbycpIBmI3iZmFdgW&export=download",
+    },
+    {
+      slug: "gta-vice-city",
+      link: "https://drive.google.com/uc?id=1CcNIO8iRMptNjGu2n9m90BEDVSBHehce&export=download",
+    },
+    {
+      slug: "project-igi",
+      link: "https://drive.google.com/uc?id=1UdNXrTSgYX1NT55Lym6MgfQqDzbffmld&export=download",
+    },
+    {
+      slug: "nfs-most-wanted",
+      link: "https://drive.google.com/uc?id=1IrDtJ3YutBxQRojRTAC3XEOJ9VGBRgfp&export=download",
+    },
+    {
+      slug: "pop-the-two-thrones",
+      link: "https://drive.google.com/uc?id=1cxcRSIL75FmVRKLFOkvB_Al70AYD9e3s&export=download",
+    },
+    {
+      slug: "max-payne-2",
+      link: "https://drive.google.com/uc?id=1fKMaSRhpQRUAESepU2JeeFFua5awd9Sp&export=download",
+    },
+    {
+      slug: "assasins-creed-3",
+      link: "https://drive.google.com/uc?id=1aCVd6YUUi49-vjHh45MdecBLwJFWIYfo&export=download",
+    },
+    {
+      slug: "counter-strike-1-6",
+      link: "https://drive.google.com/uc?id=1dqtE7GIVJ1pU73SJIPWe86jqJM6tiNDg&export=download",
     },
   ],
 };

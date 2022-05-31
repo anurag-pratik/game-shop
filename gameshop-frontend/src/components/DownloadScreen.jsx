@@ -62,6 +62,16 @@ function OrderScreen() {
     }
   }, [navigate, order._id, orderId, userInfo]);
 
+  const downloadHandler = async () => {
+    order.items.map(async (item) => {
+      await axios
+        .get(`/api/download/${item.slug}`, {
+          headers: { authorization: `Bearer ${userInfo.token}` },
+        })
+        .then((res) => window.open(res.data, "_blank"));
+    });
+  };
+
   return (
     <div>
       {loading ? (
@@ -155,7 +165,14 @@ function OrderScreen() {
               </Fade>
               <Fade right>
                 <div>
-                  <Button variant="contained">Download</Button>
+                  <Button variant="contained" onClick={downloadHandler}>
+                    Download
+                  </Button>
+                  <br />
+                  <h4 className="note-text">
+                    Note : Please make sure that pop-ups are not blocked on your
+                    browser.
+                  </h4>
                 </div>
               </Fade>
               <Fade right>

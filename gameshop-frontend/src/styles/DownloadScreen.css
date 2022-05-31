@@ -26,6 +26,9 @@
   line-height: 22px;
   padding-bottom: 15px;
 }
+.note-text {
+  padding-top: 20px;
+}
 
 @media only screen and (max-width: 900px) {
   .order-screen-container {
