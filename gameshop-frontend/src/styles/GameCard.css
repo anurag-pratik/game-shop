@@ -91,4 +91,8 @@
   .price-text {
     font-size: 0.8rem;
   }
+  .rating-text {
+    margin-top: 2px;
+    font-size: 0.8rem;
+  }
 }

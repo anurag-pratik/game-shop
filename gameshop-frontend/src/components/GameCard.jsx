@@ -45,10 +45,18 @@ function GameCard(props) {
                 <h3 className="dev-text">{game.developer}</h3>
               </Grid>
 
-              <Grid item xs={6} className="card-item-3 card-item">
-                {game.rating} ⭐ ({game.ratingCount})
+              <Grid item lg={6} xs={5} className="card-item-3 card-item">
+                <h4 className="rating-text">
+                  {game.rating} ⭐ ({game.ratingCount})
+                </h4>
               </Grid>
-              <Grid item xs={6} align="right" className="card-item-3 card-item">
+              <Grid
+                item
+                lg={6}
+                xs={7}
+                align="right"
+                className="card-item-3 card-item"
+              >
                 <h4 className="dow-text">[{game.downloadCount} downloads]</h4>
               </Grid>
 
